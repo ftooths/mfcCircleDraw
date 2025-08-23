@@ -1,0 +1,22 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<vector<int>> dots) {
+    int xMin = dots[0][0];
+    int xMax = dots[0][0];
+    int yMin = dots[0][1];
+    int yMax = dots[0][1];
+
+    for (int i = 1; i < 3; i++) {
+        xMin = std::min(xMin, dots[i][0]);
+        xMax = std::max(xMax, dots[i][0]);
+        yMin = std::min(yMin, dots[i][1]);
+        yMax = std::max(yMax, dots[i][1]);
+    }
+    
+    int answer = (xMax - xMin) * (yMax - yMin);
+    
+    return answer;
+}
